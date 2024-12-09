@@ -61,7 +61,7 @@ function driveActivePlayer(turns) {
 
 function App() {
   const [gameTurns, setGameTurns] = useState([]);
-  const [players, setPlayers] = useState({ X: 'Player 1', O: 'Player 2' });
+  const [players, setPlayers] = useState(PLAYERS);
 
   const activePlayer = driveActivePlayer(gameTurns);
   const gameBoard = deriveGameBoard(gameTurns);
@@ -97,13 +97,13 @@ function App() {
       <div id='game-container'>
         <ol id='players' className='highlight-player'>
           <Player
-            name={PLAYERS.X}
+            initialName={PLAYERS.X}
             symbol='X'
             isActive={activePlayer === 'X'}
             onChangeName={handlePlayerNameChange}
           />
           <Player
-            name={PLAYERS.O}
+            initialName={PLAYERS.O}
             symbol='O'
             isActive={activePlayer === 'O'}
             onChangeName={handlePlayerNameChange}
